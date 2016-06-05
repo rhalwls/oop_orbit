@@ -54,3 +54,32 @@ void Earth::Hide() {
     gotoxy(pSun->GetX() + x, pSun->GetY() + y);
     putchar(' ');
 }
+int Earth::GetX() { return pSun->GetX() + x; }
+int Earth::GetY() { return pSun->GetY() + y; }
+
+Moon::Moon(int ar, char ach, Earth* apEarth)
+            : r(ar), initialCh(ach), pEarth(apEarth) {
+    x = int(cos(0) * r * 2);
+    y = int(sin(0) * r);
+}
+void Moon::Revolve(short angle) {
+    Hide();
+    /*
+     * Earth can get the coordinate of the Sun each time when Show() and Hide() is called since
+     * the Sun is stationary.
+     *
+     * Because the Earth is a moving object, we should add pEarth->GetX/Y() from here.
+     * If not, previous 'M' character will not be removed upon drawing a new coordinate.
+     */
+    x = pEarth->GetX() + int(cos(angle * M_PI / 180) * r * 2);
+    y = pEarth->GetY() + int(sin(angle * M_PI / 180) * r);
+    Show();
+}
+void Moon::Show() {
+    gotoxy(x, y);
+    putchar(initialCh);
+}
+void Moon::Hide() {
+    gotoxy(x, y);
+    putchar(' ');
+}

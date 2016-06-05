@@ -27,5 +27,21 @@ public:
     void Revolve(short);
     void Show();
     void Hide();
+    int GetX();
+    int GetY();
+};
+
+class Moon {
+private:
+    int r;
+    int x, y;
+    char initialCh;
+    Earth* pEarth;
+
+public:
+    Moon(int, char, Earth*);
+    void Revolve(short);
+    void Show();
+    void Hide();
 };
 #endif
