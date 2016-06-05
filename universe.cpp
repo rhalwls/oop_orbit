@@ -40,7 +40,7 @@ Earth::Earth(int ar, char ach, Sun* apSun)
     x = int(cos(0) * r * 2);
     y = int(sin(0) * r);
 }
-void Earth::Revolve(double angle) {
+void Earth::Revolve(short angle) {
     Hide();
     x = int(cos(angle * PI / 180) * r * 2);
     y = int(sin(angle * PI / 180) * r);

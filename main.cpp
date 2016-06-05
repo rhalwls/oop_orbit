@@ -10,7 +10,11 @@ int main() {
     Earth E(10, 'E', &S);
 
     S.Show();
-    for (double angle = 0;;angle += 10) {
+    for (short angle = 0;;angle += 10) {
+        // Avoid overflow
+        if (angle == 360)
+            angle = 0;
+
         E.Revolve(angle);
         sleep(200);
     }

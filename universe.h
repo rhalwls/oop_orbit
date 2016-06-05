@@ -24,7 +24,7 @@ private:
 
 public:
     Earth(int, char, Sun*);
-    void Revolve(double);
+    void Revolve(short);
     void Show();
     void Hide();
 };
