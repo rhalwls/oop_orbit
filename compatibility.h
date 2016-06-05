@@ -15,8 +15,8 @@ static void sleep(int mili) {
 #include <cmath>
 
 typedef struct _COORD {
-    uint16_t X;
-    uint16_t Y;
+    int X;
+    int Y;
 } COORD;
 
 static void sleep(int mili) {
