@@ -36,7 +36,10 @@ int Sun::GetX() { return x; }
 int Sun::GetY() { return y; }
 
 Earth::Earth(int ar, char ach, Sun* apSun)
-            : r(ar), initialCh(ach), pSun(apSun) {}
+            : r(ar), initialCh(ach), pSun(apSun) {
+    x = int(cos(0) * r * 2);
+    y = int(sin(0) * r);
+}
 void Earth::Revolve(double angle) {
     Hide();
     x = int(cos(angle * PI / 180) * r * 2);
