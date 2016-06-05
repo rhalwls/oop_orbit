@@ -11,9 +11,8 @@
 #endif
 
 void gotoxy(int x, int y) {
-    COORD Pos = { x - 1, y - 1};
-
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
+    COORD Pos = { x - 1, y - 1};
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 #else
     printf("\033[%d;%dH", y + 1, x + 1);
