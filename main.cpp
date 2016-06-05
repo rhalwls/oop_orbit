@@ -3,6 +3,9 @@
 #include "universe.h"
 
 int main() {
+    // Always flush stdout directly
+    setbuf(stdout, NULL);
+
     Sun S(40, 12, 'S');
     Earth E(10, 'E', &S);
 
