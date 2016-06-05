@@ -2,6 +2,14 @@
 #include "compatibility.h"
 #include "universe.h"
 
+#ifndef PI
+ #ifdef M_PI
+  #define PI M_PI
+ #else
+  #define PI 3.1415926535
+ #endif
+#endif
+
 void gotoxy(int x, int y) {
     COORD Pos = { x - 1, y - 1};
 
