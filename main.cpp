@@ -12,7 +12,7 @@ int main() {
     S.Show();
     for (double angle = 0;;angle += 10) {
         E.Revolve(angle);
-        Sleep(200);
+        sleep(200);
     }
 
     return 0;
