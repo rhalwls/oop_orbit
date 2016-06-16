@@ -19,10 +19,19 @@ void gotoxy(int x, int y) {
 #endif
 }
 
-Sun::Sun(int ax, int ay, char ach) {
+Sun::Sun(int ar, int ax, int ay, char ach) {
+    r = ar;
     x = ax;
     y = ay;
+    origX = ax;
+    origY = ay;
     initialCh = ach;
+}
+void Sun::Revolve(short angle) {
+    Hide();
+    x = origX + int(cos(angle * PI / 180) * r * 2);
+    y = origY + int(sin(angle * PI / 180) * r);
+    Show();
 }
 void Sun::Show() {
     gotoxy(x, y);
@@ -42,20 +51,20 @@ Earth::Earth(int ar, char ach, Sun* apSun)
 }
 void Earth::Revolve(short angle) {
     Hide();
-    x = int(cos(angle * PI / 180) * r * 2);
-    y = int(sin(angle * PI / 180) * r);
+    x = pSun->GetX() + int(cos(angle * PI / 180) * r * 2);
+    y = pSun->GetY() + int(sin(angle * PI / 180) * r);
     Show();
 }
 void Earth::Show() {
-    gotoxy(pSun->GetX() + x, pSun->GetY() + y);
+    gotoxy(x, y);
     putchar(initialCh);
 }
 void Earth::Hide() {
-    gotoxy(pSun->GetX() + x, pSun->GetY() + y);
+    gotoxy(x, y);
     putchar(' ');
 }
-int Earth::GetX() { return pSun->GetX() + x; }
-int Earth::GetY() { return pSun->GetY() + y; }
+int Earth::GetX() { return x; }
+int Earth::GetY() { return y; }
 
 Moon::Moon(int ar, char ach, Earth* apEarth)
             : r(ar), initialCh(ach), pEarth(apEarth) {

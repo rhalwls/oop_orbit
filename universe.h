@@ -4,11 +4,14 @@
 void gotoxy(int, int);
 class Sun {
 private:
+    int r;
     int x, y;
+    int origX, origY;
     char initialCh;
 
 public:
-    Sun(int, int, char);
+    Sun(int, int, int, char);
+    void Revolve(short);
     void Show();
     void Hide();
     int GetX();
