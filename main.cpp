@@ -13,7 +13,7 @@ int main() {
     Moon M(3, 'M', &E);
 
     S.Show();
-    for (short angle = 0;;angle += 5) {
+    for (short angle = 0;;angle += angle_diff) {
         // Avoid overflow
         if (angle == 360)
             angle = 0;
@@ -21,7 +21,7 @@ int main() {
         E.Revolve(angle);
         // Let the Moon circle around Earth 5 times faster
         M.Revolve(angle * 5);
-        sleep(50);
+        sleep(sleep_duration);
     }
 
     return 0;

@@ -1,6 +1,9 @@
 #ifndef _UNIVERSE_H_
 #define _UNIVERSE_H_
 
+const int angle_diff     = 5;
+const int sleep_duration = 50;
+
 void gotoxy(int, int);
 class Sun {
 private:
