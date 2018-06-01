@@ -2,7 +2,7 @@
 #define _UNIVERSE_H_
 
 const int angle_diff     = 5;
-const int sleep_duration = 50;
+const int sleep_duration = 300;
 
 void gotoxy(int, int);
 class Sun {
